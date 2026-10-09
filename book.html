@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Service | Autozone Motors</title>
+<meta name="description" content="Book an Autozone Motors service and send it on WhatsApp.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="luxury.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="logo" href="index.html" aria-label="Autozone Motors home"><img src="assets/logo.png" alt="Auto Zone" width="1080" height="201"></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav id="nav" class="nav">
+      <a href="index.html">Home</a>
+      <div class="has-sub">
+        <a href="our-services.html">Our Services</a>
+        <div class="sub">
+          <a href="mechanical-services.html">Mechanical Services</a>
+          <a href="electrical-services.html">Electrical Services</a>
+          <a href="body-works-services.html">Body Works Services</a>
+          <a href="wheels-and-brake-services.html">Wheels and Brake Services</a>
+          <a href="car-ac-and-hvac-services.html">Car AC and HVAC Services</a>
+          <a href="ppf-coating-and-detailing.html">PPF, Coating and Detailing</a>
+          <a href="tyres-and-rims.html">Tyres and Rims</a>
+          <a href="car-accessories.html">Car Accessories</a>
+          <a href="car-care-products.html">Car Care Products</a>
+        </div>
+      </div>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact-us.html">Contact Us</a>
+      <a class="nav-cta" href="book.html">Book Service</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Book a Service</p>
+    <h1>Book Your Service in Under a Minute</h1>
+    <p class="lead">Choose your vehicle and services, pick a time, and send your booking straight to our team on WhatsApp.</p>
+    
+  </div>
+</section>
+<section class="sec bk-sec">
+  <div class="wrap bk-grid">
+    <form id="bk" class="bk-card" novalidate>
+      <ol class="bk-steps" id="bkSteps">
+        <li class="on"><b>1</b><span>Vehicle</span></li>
+        <li><b>2</b><span>Services</span></li>
+        <li><b>3</b><span>Schedule</span></li>
+        <li><b>4</b><span>Your Details</span></li>
+      </ol>
+      <div class="bk-bar"><i id="bkBar"></i></div>
+
+      <fieldset class="bk-pane on" data-step="1">
+        <legend>Select your vehicle</legend>
+        <div class="bk-opts four">
+          <label class="bk-opt"><input type="radio" name="vehicle" value="Hatchback" checked><span><b>Hatchback</b><small>e.g. Alto, Picanto</small></span></label>
+          <label class="bk-opt"><input type="radio" name="vehicle" value="Sedan"><span><b>Sedan</b><small>e.g. Civic, City</small></span></label>
+          <label class="bk-opt"><input type="radio" name="vehicle" value="SUV"><span><b>SUV</b><small>e.g. Sportage, Tucson</small></span></label>
+          <label class="bk-opt"><input type="radio" name="vehicle" value="Full Size SUV"><span><b>Full Size SUV</b><small>e.g. Prado, Land Cruiser</small></span></label>
+        </div>
+        <div class="bk-row">
+          <label class="bk-f">Make<select name="make" required><option value="">Select make</option></select></label>
+          <label class="bk-f">Model<select name="model" required disabled><option value="">Select make first</option></select></label>
+        </div>
+        <div class="bk-row">
+          <label class="bk-f" id="otherWrap" hidden>Your car make and model<input name="other" placeholder="e.g. Nissan Dayz 2016" autocomplete="off"></label>
+          <label class="bk-f">Registration no. (optional)<input name="reg" placeholder="e.g. LEB-1234" autocomplete="off"></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="bk-pane" data-step="2">
+        <legend>What do you need?</legend>
+        <p class="bk-hint">Select one or more services.</p>
+        <div class="bk-opts two">
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Mechanical Services" data-key="mechanical"><span><b>Mechanical Services</b><small>Engine, transmission, and suspension</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Electrical and Diagnostics" data-key="electrical"><span><b>Electrical and Diagnostics</b><small>Scanning for electrical, sensor, ABS, hybrid and engine faults</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Bodywork and Paint" data-key="bodywork"><span><b>Bodywork and Paint</b><small>Denting, painting, dent pulling and welding</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Wheels and Brake Services" data-key="wheels"><span><b>Wheels and Brake Services</b><small>3D alignment, brake service, pad replacement</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="AC and HVAC System" data-key="ac"><span><b>AC and HVAC System</b><small>AC service, gas charging, recycling</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Detailing, PPF and Coating" data-key="detailing"><span><b>Detailing, PPF and Coating</b><small>Ceramic and graphene coating, PPF, detailing</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Tyres and Rims" data-key="tyres"><span><b>Tyres and Rims</b><small>Branded and Chinese tyres, alloy rims, balancing</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Car Accessories and Interior" data-key="accessories"><span><b>Car Accessories and Interior</b><small>Upholstery, mats, sound systems, lights</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Car Care Products" data-key="carcare"><span><b>Car Care Products</b><small>Wax, polish, shampoo, interior care</small></span></label>
+          <label class="bk-opt chk"><input type="checkbox" name="service" value="Inspection and Diagnosis" data-key="inspection"><span><b>Inspection and Diagnosis</b><small>Not sure what is wrong? Start here</small></span></label>
+        </div>
+        <label class="bk-f">Describe the problem (optional)<textarea name="notes" rows="3" placeholder="e.g. AC not cooling, warning light on dashboard"></textarea></label>
+      </fieldset>
+
+      <fieldset class="bk-pane" data-step="3">
+        <legend>Pick a date and time</legend>
+        <p class="bk-hint">We are open Monday to Sunday, 9AM to 9PM.</p>
+        <div class="bk-row">
+          <label class="bk-f">Preferred date<input type="date" name="date" required></label>
+          <label class="bk-f">Preferred time<select name="time" required><option value="">Select a time</option></select></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="bk-pane" data-step="4">
+        <legend>Your details</legend>
+        <div class="bk-row">
+          <label class="bk-f">Full name<input name="name" autocomplete="name" required></label>
+          <label class="bk-f">Phone / WhatsApp<input type="tel" name="phone" autocomplete="tel" placeholder="03XX XXXXXXX" required></label>
+        </div>
+        <p class="bk-hint">Pressing the button below opens WhatsApp with your booking ready to send to 0333 3053389.</p>
+      </fieldset>
+
+      <p class="bk-err" id="bkErr" role="alert"></p>
+      <div class="bk-nav">
+        <button type="button" class="btn btn-ghost" id="bkBack">Back</button>
+        <button type="button" class="btn btn-primary" id="bkNext">Continue</button>
+        <button type="submit" class="btn wa-btn" id="bkSend"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 1.9 17.8L0 24l6.3-1.7A11.8 11.8 0 0 0 12 23.8h0A11.8 11.8 0 0 0 20.5 3.5zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 1 1 8.3 4.6zm5.4-7.3c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 4.9c2 .9 2.8.9 3.8.8a3.2 3.2 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.1-.3-.2-.6-.3z"/></svg><span>Send Booking on WhatsApp</span></button>
+      </div>
+    </form>
+
+    <aside class="bk-sum">
+      <h3>Your Booking</h3>
+      <dl>
+        <dt>Vehicle</dt><dd id="sVeh">-</dd>
+        <dt>Services</dt><dd id="sSvc">None selected</dd>
+        <dt>Date and time</dt><dd id="sWhen">-</dd>
+        <dt>Contact</dt><dd id="sWho">-</dd>
+      </dl>
+      <p class="bk-note">Our team confirms your slot on WhatsApp. Need help? Call <a href="tel:03333053389">0333 3053389</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<div class="bk-done" id="bkDone" hidden>
+  <div class="bk-done-card">
+    <div class="bk-check"></div>
+    <h2>Booking Ready</h2>
+    <p>WhatsApp should have opened with your booking message. Just press send. If nothing opened, tap the button below.</p>
+    <a class="btn btn-primary" id="bkLink" target="_blank" rel="noopener" href="#">Open WhatsApp</a>
+    <button type="button" class="btn btn-ghost" id="bkAgain">New Booking</button>
+  </div>
+</div>
+<script src="book.js"></script>
+</main>
+<footer class="footer">
+  <div class="wrap foot-grid">
+    <div>
+      <img class="flogo" src="assets/logo.png" alt="Auto Zone" width="1080" height="201">
+      <p>Autozone Motors is Pakistan's one-stop automotive workshop, offering mechanical, electrical, detailing, and accessory services.</p>
+    </div>
+    <div>
+      <h4>Menu</h4>
+      <a href="index.html">Home</a>
+      <a href="our-services.html">Our Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact-us.html">Contact Us</a>
+      <a href="book.html">Book Service</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>51 Pine Ave, T &amp; T Aabpara Housing Society, Lahore, 54000, Pakistan</p>
+      <a href="tel:03333053389">0333 3053389</a>
+      <a href="mailto:info@autozonemotors.com">info@autozonemotors.com</a>
+      <p>Mon to Sun, 9AM to 9PM</p>
+      <a href="http://google.com/maps?cid=11933435538959423823">View on map</a>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <a href="http://facebook.com/people/Autozonemotors/61590541200899">Facebook</a>
+      <a href="http://instagram.com/autozonemotors">Instagram</a>
+      <a href="http://tiktok.com/@autozone_motors">TikTok</a>
+    </div>
+  </div>
+  <p class="copy">&copy; 2026 All Rights Reserved Autozone motors</p>
+</footer>
+<script src="script.js"></script>
+<script src="luxury.js"></script>
+</body>
+</html>

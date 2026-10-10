@@ -174,3 +174,34 @@
     setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 600); }, 3500);
   });
 })();
+
+/* ---- photo gallery lightbox ---- */
+(() => {
+  const gals = [...document.querySelectorAll('.gal')];
+  if (!gals.length) return;
+  const lb = document.createElement('div');
+  lb.className = 'lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-label', 'Photo viewer');
+  lb.innerHTML = '<button class="x" aria-label="Close">&times;</button><button class="p" aria-label="Previous">&#8592;</button><img alt=""><button class="n" aria-label="Next">&#8594;</button><span class="c"></span>';
+  document.body.appendChild(lb);
+  const im = lb.querySelector('img'), cnt = lb.querySelector('.c');
+  let i = 0;
+  const show = n => {
+    i = (n + gals.length) % gals.length;
+    im.src = gals[i].dataset.full; im.alt = gals[i].querySelector('img').alt;
+    cnt.textContent = `${i + 1} / ${gals.length}`;
+  };
+  const open = n => { show(n); lb.classList.add('open'); document.body.style.overflow = 'hidden'; };
+  const close = () => { lb.classList.remove('open'); document.body.style.overflow = ''; };
+  gals.forEach((g, n) => g.addEventListener('click', () => open(n)));
+  lb.querySelector('.x').onclick = close;
+  lb.querySelector('.p').onclick = () => show(i - 1);
+  lb.querySelector('.n').onclick = () => show(i + 1);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1);
+  });
+  let sx = 0;
+  lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1)); });
+})();

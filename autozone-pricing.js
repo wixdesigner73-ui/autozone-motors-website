@@ -435,9 +435,13 @@ class AutozonePricing extends HTMLElement {
       "#vehicle{display:contents}#vehicle>.label{display:block;margin-top:44px}" +
       ".vsel{position:sticky;top:var(--hdr-h,0px);z-index:25;padding:12px 0;background:var(--bg);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);transition:top .45s cubic-bezier(.2,.8,.2,1)}" +
       ".vcard{min-height:0;padding:14px 16px}" +
+      ".sum{top:calc(var(--hdr-h,0px) + var(--vsel-h,0px) + 16px);max-height:calc(100vh - var(--hdr-h,0px) - var(--vsel-h,0px) - 32px);overflow-y:auto;transition:top .45s cubic-bezier(.2,.8,.2,1)}" +
       "@media (max-width:719px){.vsel{grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 0}.vcard{padding:10px 4px;gap:4px;align-items:center;text-align:center}.vcard svg{width:44px;height:20px}.vcard b{font-size:12.5px}.vcard small{display:none}.vcard[aria-checked=true]::after{width:14px;height:14px;top:5px;right:5px;background-size:9px}}";
     this.root.innerHTML = "<style>" + CSS + only + "</style>" + (only ? HTML.replace("Prices come from the same list above.", "Prices come from our full price list.") : HTML);
     init(this.root, this);
+    // keep the estimate box below the sticky vehicle cards
+    var host = this, vsel = this.root.querySelector(".vsel");
+    if (window.ResizeObserver) new ResizeObserver(function () { host.style.setProperty("--vsel-h", vsel.offsetHeight + "px"); }).observe(vsel);
   }
 }
 customElements.define("autozone-pricing", AutozonePricing);

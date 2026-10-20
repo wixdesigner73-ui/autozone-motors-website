@@ -1,0 +1,113 @@
+/* =========================================================
+   Autozone Motors - light theme (loads after luxury.css)
+   Photo heroes, header and footer stay dark so the logo reads.
+   ========================================================= */
+:root{
+  --bg:#f7f8f4; --bg2:#eef1e8; --card:#fff; --line:rgba(11,13,9,.11);
+  --txt:#1a1d16; --dim:#5d6455; --green:#2f8a00;
+  --gtext:linear-gradient(90deg,#2f8a00,#4cb800);
+  --shadow:0 10px 30px rgba(20,30,10,.08);
+}
+body{background:var(--bg);color:var(--txt)}
+body::before{opacity:.025}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#c9cfbf}
+
+/* ---------- type ---------- */
+h2{color:var(--ink)}
+.hero h2,.page-hero h2,.promo h2,.lb h2{color:#fff}
+.kicker{color:var(--green)}
+.kicker::before{background:linear-gradient(90deg,var(--green),var(--lime))}
+.promo .kicker{color:var(--yellow)}
+.promo .kicker::before{background:linear-gradient(90deg,var(--lime),var(--yellow))}
+.closing .kicker{color:var(--ink)}
+.closing .kicker::before{background:var(--ink)}
+.muted{color:var(--dim)}
+
+/* ---------- home ---------- */
+.cats{background:#fff}
+.tile{background:#fff;border-color:var(--line);color:var(--ink);box-shadow:var(--shadow)}
+.tile i{color:var(--green)}
+.tile.spot::after{background:radial-gradient(240px circle at var(--mx,50%) var(--my,50%),rgba(102,255,0,.18),transparent 60%)}
+.cards-sec{background:var(--bg)}
+.card{background:#fff;border-color:var(--line);box-shadow:var(--shadow)}
+.card:hover{box-shadow:0 22px 50px rgba(20,30,10,.16),0 0 0 1px rgba(47,138,0,.35)}
+.arrow{border-color:rgba(11,13,9,.3);color:var(--ink)}
+.marquee{box-shadow:0 14px 30px rgba(20,30,10,.15)}
+.stats{background:#fff}
+.stat{background:linear-gradient(180deg,var(--bg),#fff);box-shadow:var(--shadow)}
+.stat b,.steps b{background:var(--gtext);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* process: light cards */
+.process{background:var(--bg2);color:var(--ink)}
+.process .kicker{color:var(--green)}
+.steps li{background:#fff;box-shadow:var(--shadow)}
+.steps li:hover{background:#f6faef}
+.steps p{color:var(--dim)}
+
+/* ---------- shared sections ---------- */
+.why,.sec.alt,.gallery-sec{background:var(--bg2)}
+.sec,.faq{background:var(--bg)}
+.ticks li,.panel .ticks li{border-color:var(--line)}
+details{background:#fff}
+details[open]{background:#f6faef}
+summary{color:var(--ink)}
+summary::after{color:var(--green)}
+.mini,.scard{background:#fff;color:var(--ink);box-shadow:var(--shadow)}
+.scard b,.scard span{color:var(--green)}
+.scard:hover b,.scard:hover span{color:var(--ink)}
+.panel{background:linear-gradient(160deg,#fff,#f1f6e9);color:var(--ink);box-shadow:var(--shadow)}
+.panel h3{color:var(--green)}
+.ptable td{color:var(--txt)}
+.ptable tr:nth-child(even) td{background:rgba(11,13,9,.025)}
+.ptable tbody tr:hover td{background:rgba(102,255,0,.12)}
+.ptable th{background:var(--ink)}
+.ptable .pr{color:var(--green)}
+.info dt,.info a:hover{color:var(--green)}
+.gal{background:#e3e7da}
+.btn-dark:hover{background:var(--lime);color:var(--ink)}
+
+/* contact form */
+.form{background:#fff;box-shadow:var(--shadow)}
+.form label{color:var(--ink)}
+.form input,.form select,.form textarea{background:#fff;border-color:#cdd4c2;color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--green)}
+.form select option{background:#fff}
+
+/* ---------- chrome ---------- */
+.cur{border-color:var(--green)}
+.cur-dot{background:var(--green)}
+.toast{box-shadow:0 14px 40px rgba(20,30,10,.2)}
+
+/* ---------- booking ---------- */
+.bk-card{background:#fff;box-shadow:var(--shadow)}
+.bk-steps li.on{color:var(--ink)}
+.bk-steps li.done{color:var(--green)}
+.bk-pane legend,.bk-f,.bk-opt b{color:var(--ink)}
+.bk-opt span{background:var(--bg)}
+.bk-opt:hover span{border-color:rgba(47,138,0,.5)}
+.bk-opt input:checked+span{background:rgba(102,255,0,.12);box-shadow:inset 4px 0 0 var(--green)}
+.bk-opt.chk span::after{border-color:#b3bba7}
+.bk-f input,.bk-f select,.bk-f textarea,.bk-f input[type=date]{background-color:#fff;border-color:#cdd4c2;color:var(--ink);color-scheme:light}
+.bk-f input:focus,.bk-f select:focus,.bk-f textarea:focus{border-color:var(--green)}
+.bk-f input:hover,.bk-f select:hover:not(:disabled),.bk-f textarea:hover{border-color:rgba(47,138,0,.55)}
+.bk-f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232f8a00' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.bk-f select option{background:#fff;color:var(--ink)}
+.bk-f input[type=date]::-webkit-calendar-picker-indicator{filter:none}
+@supports (appearance:base-select){
+  .bk-f select::picker(select){background:#fff;box-shadow:0 24px 60px rgba(20,30,10,.18)}
+  .bk-f select option{color:var(--ink)}
+  .bk-f select option:checked{color:var(--green)}
+}
+.bk-err{color:#d0341f}
+.bk-nav #bkBack{color:var(--ink);border-color:rgba(11,13,9,.25)}
+.bk-nav #bkBack:hover{color:var(--green)}
+.bk-sum{background:linear-gradient(160deg,#fff,#f1f6e9);box-shadow:var(--shadow)}
+.bk-sum h3,.bk-tag,.bk-note a{color:var(--green)}
+.bk-sum dd{color:var(--ink)}
+.bk-done{background:rgba(11,13,9,.55)}
+.bk-done-card h2{color:var(--ink)}
+
+/* homepage price calculator */
+.home-calc{background:#f5f6f4}
+.home-calc-more{text-align:center;padding:0 0 72px}

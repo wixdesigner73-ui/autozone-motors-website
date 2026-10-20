@@ -428,7 +428,9 @@ class AutozonePricing extends HTMLElement {
     loadFont();
     if (this.ready) return;
     this.ready = true;
-    this.root.innerHTML = "<style>" + CSS + "</style>" + HTML;
+    // calc-only: show just the price calculator (used on the homepage)
+    var only = this.hasAttribute("calc-only") ? ".az>.nav,.az>main>:not(#calculator){display:none!important}#calculator{padding-top:72px!important}" : "";
+    this.root.innerHTML = "<style>" + CSS + only + "</style>" + (only ? HTML.replace("Prices come from the same list above.", "Prices come from our full price list.") : HTML);
     init(this.root, this);
   }
 }

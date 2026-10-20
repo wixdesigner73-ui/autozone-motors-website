@@ -50,12 +50,16 @@
   const hero0 = heroes[0];
   if (hero0 && hero0.classList.contains('hero')) hero0.appendChild(mk('div', 'scroll-cue', '<i></i>Scroll'));
   let lastY = 0, tick = false;
+  // visible header height, used by sticky bars such as the pricing vehicle selector
+  const setHdr = () => root.style.setProperty('--hdr-h', header.classList.contains('hide') ? '0px' : header.offsetHeight + 'px');
+  $('.bar').addEventListener('transitionend', setHdr);
   const onScroll = () => {
     const y = scrollY, max = root.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     header.classList.toggle('scrolled', y > 40);
     header.classList.toggle('hide', y > 320 && y > lastY + 4 && !(nav && nav.classList.contains('open')));
     if (y < lastY - 4 || y < 320) header.classList.remove('hide');
+    setHdr();
     top.classList.toggle('show', y > 700);
     if (!reduce) heroes.forEach(h => h.style.setProperty('--py', Math.min(y, innerHeight * 1.2) * .28 + 'px'));
     lastY = y; tick = false;

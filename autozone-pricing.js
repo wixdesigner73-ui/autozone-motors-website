@@ -430,6 +430,12 @@ class AutozonePricing extends HTMLElement {
     this.ready = true;
     // calc-only: show just the price calculator (used on the homepage)
     var only = this.hasAttribute("calc-only") ? ".az>.nav,.az>main>:not(#calculator){display:none!important}#calculator{padding-top:72px!important}" : "";
+    // page: the component flows with the page, so the vehicle cards can stick under the site header
+    if (this.hasAttribute("page")) only += ".az{height:auto;overflow:visible;overflow-x:clip}" +
+      "#vehicle{display:contents}#vehicle>.label{display:block;margin-top:44px}" +
+      ".vsel{position:sticky;top:var(--hdr-h,0px);z-index:25;padding:12px 0;background:var(--bg);box-shadow:0 0 0 100vmax var(--bg);clip-path:inset(0 -100vmax);transition:top .45s cubic-bezier(.2,.8,.2,1)}" +
+      ".vcard{min-height:0;padding:14px 16px}" +
+      "@media (max-width:719px){.vsel{grid-template-columns:repeat(4,1fr);gap:6px;padding:8px 0}.vcard{padding:10px 4px;gap:4px;align-items:center;text-align:center}.vcard svg{width:44px;height:20px}.vcard b{font-size:12.5px}.vcard small{display:none}.vcard[aria-checked=true]::after{width:14px;height:14px;top:5px;right:5px;background-size:9px}}";
     this.root.innerHTML = "<style>" + CSS + only + "</style>" + (only ? HTML.replace("Prices come from the same list above.", "Prices come from our full price list.") : HTML);
     init(this.root, this);
   }
